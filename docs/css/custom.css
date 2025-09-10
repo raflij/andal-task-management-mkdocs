@@ -25,3 +25,30 @@
 .wm-content-pane {
     max-width: none !important;
 }
+
+/* Fix sidebar width issues */
+.wm-toc-pane {
+    min-width: 280px !important;
+    max-width: 320px !important;
+    width: 320px !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+}
+
+/* Adjust content pane padding to match sidebar width */
+.wm-content-pane {
+    padding-left: 320px !important;
+}
+
+/* Fix text overflow in sidebar */
+.wm-toc-text {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    word-break: break-all !important;
+}
+
+/* Ensure hidden state still works */
+.wm-toc-hidden > .wm-toc-pane {
+    margin-left: -320px !important;
+}
