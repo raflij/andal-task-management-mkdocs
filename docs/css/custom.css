@@ -1,0 +1,27 @@
+/* Override Windmill theme width constraints to use full screen width */
+
+/* Remove max-width constraints on main containers */
+.wm-page-top-frame,
+.wm-page-content-frame,
+.container-fluid,
+.wm-page-content {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* Ensure the main content area uses full width */
+.wm-page-content {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* Adjust container fluid to use full width */
+.container-fluid {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* Remove any fixed width constraints */
+.wm-content-pane {
+    max-width: none !important;
+}

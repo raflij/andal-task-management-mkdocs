@@ -1,0 +1,39 @@
+site_name: DevOps/SRE Task Management
+site_description: Personal documentation for DevOps/SRE tasks, planning, and infrastructure management
+
+nav:
+  - Home: index.md
+  - Todo & Tasks: todo.md
+  - Planning & Projects: planning.md
+  - Infrastructure: infrastructure.md
+  - Runbooks: runbooks.md
+  - Monitoring: monitoring.md
+  - Monitoring Matrix: monitoring-matrix.md
+
+theme:
+  name: windmill
+  custom_dir: docs/
+  
+extra_css:
+  - css/custom.css
+
+plugins:
+  - search
+  - mermaid2
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: true
+
