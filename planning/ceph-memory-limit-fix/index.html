@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ceph Memory Limit Fix - DevOps/SRE Task Management</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Fix Memory Limit on OSD in Ceph Cluster", url: "#_top", children: [
+              {title: "Project Overview", url: "#project-overview" },
+              {title: "Project Tasks", url: "#project-tasks" },
+              {title: "Project Summary", url: "#project-summary" },
+              {title: "Lessons Learned", url: "#lessons-learned" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../monitoring-kubernetes/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../monitoring-kubernetes/" class="btn btn-xs btn-link">
+        Monitoring Kubernetes Phase 1
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../post-incident/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../post-incident/" class="btn btn-xs btn-link">
+        Post-Incident Response (Ransomware)
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="fix-memory-limit-on-osd-in-ceph-cluster">Fix Memory Limit on OSD in Ceph Cluster<a class="headerlink" href="#fix-memory-limit-on-osd-in-ceph-cluster" title="Permanent link">&para;</a></h1>
+<h2 id="project-overview">Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">&para;</a></h2>
+<p>This planning document outlines the project to fix memory limit issues on OSDs (Object Storage Daemons) in our Ceph cluster. The project follows a phased approach starting with POC in a replica environment before implementing in production.</p>
+<h2 id="project-tasks">Project Tasks<a class="headerlink" href="#project-tasks" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Task</th>
+<th>SubTasks</th>
+<th>Estimate Hours</th>
+<th>Goal</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 1: Environment Preparation</td>
+<td>Create replica k8s cluster production in colo</td>
+<td>- Create new VMs<br>- Install k0s, vcluster, rook ceph cluster, DB Citus<br>- Match configuration with production</td>
+<td>6</td>
+<td>POC before production implementation</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Phase 2: POC Implementation</td>
+<td>Execute safe POC fix memory limit</td>
+<td>- Test memory limit adjustments<br>- Monitor cluster stability<br>- Document findings</td>
+<td>4</td>
+<td>Validate fix approach safely</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Phase 3: Backup &amp; Recovery</td>
+<td>Prepare full backup mechanism for performance &amp; production</td>
+<td>- Setup backup procedures<br>- Test backup integrity<br>- Document backup process</td>
+<td>-</td>
+<td>Backup plan if issues occur in production</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Phase 3: Backup &amp; Recovery</td>
+<td>Prepare full restore mechanism for performance &amp; production</td>
+<td>- Setup restore procedures<br>- Test restore process<br>- Document restore steps</td>
+<td>-</td>
+<td>Recovery plan if issues occur in production</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Phase 4: Production Implementation</td>
+<td>Implement fix memory limit osd ceph in production</td>
+<td>- Apply memory limit configurations<br>- Monitor cluster health<br>- Verify performance improvements</td>
+<td>-</td>
+<td>Resolve production memory issues</td>
+<td>Done</td>
+</tr>
+</tbody>
+</table>
+<h2 id="project-summary">Project Summary<a class="headerlink" href="#project-summary" title="Permanent link">&para;</a></h2>
+<p><strong>Total Estimated Hours:</strong> 10+ hours</p>
+<p><strong>Key Achievements:</strong>
+- ✅ Successfully created replica environment for safe testing
+- ✅ Validated memory limit fix approach through POC
+- ✅ Established comprehensive backup and restore procedures
+- ✅ Successfully implemented fix in production environment</p>
+<p><strong>Impact:</strong> Resolved Ceph OSD memory limit issues, improving cluster stability and performance.</p>
+<p><strong>Priority:</strong> High - Critical infrastructure improvement</p>
+<h2 id="lessons-learned">Lessons Learned<a class="headerlink" href="#lessons-learned" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>POC Approach:</strong> Testing in replica environment prevented production risks</li>
+<li><strong>Backup Strategy:</strong> Having comprehensive backup/restore procedures provided confidence for production changes</li>
+<li><strong>Phased Implementation:</strong> Step-by-step approach ensured successful deployment</li>
+</ol>
+<hr />
+<p><em>Last Updated: September 10, 2025</em></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../monitoring-kubernetes/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../monitoring-kubernetes/" class="btn btn-xs btn-link">
+        Monitoring Kubernetes Phase 1
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../post-incident/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../post-incident/" class="btn btn-xs btn-link">
+        Post-Incident Response (Ransomware)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

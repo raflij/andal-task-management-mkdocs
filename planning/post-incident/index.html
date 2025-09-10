@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Post-Incident Response (Ransomware) - DevOps/SRE Task Management</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Post-Incident Response \u0026amp; Security Improvements", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ceph-memory-limit-fix/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ceph-memory-limit-fix/" class="btn btn-xs btn-link">
+        Ceph Memory Limit Fix
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../security-hardening/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../security-hardening/" class="btn btn-xs btn-link">
+        Security Hardening
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="post-incident-response-security-improvements">Post-Incident Response &amp; Security Improvements<a class="headerlink" href="#post-incident-response-security-improvements" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Task</th>
+<th>SubTask</th>
+<th>Estimate Hour</th>
+<th>Goal</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td><strong>Mengamankan iDRAC</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Mengganti semua password dari dokumen lama</td>
+<td>1</td>
+<td>Menghilangkan potensi akses tidak sah melalui kredensial lama</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Membuat username devops baru</td>
+<td>1</td>
+<td></td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Menonaktifkan/Menghapus akses root dan user lain</td>
+<td>1</td>
+<td>Memisahkan akses administratif dengan kredensial unik</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Periksa Kunci SSH yang tersimpan</td>
+<td>2</td>
+<td>Menghapus akses berbasis SSH yang tidak sah</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Cek Integrasi Direktori (LDAP/Active Directory)</td>
+<td>2</td>
+<td>Memastikan integrasi sesuai kebijakan keamanan</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Audit Log</td>
+<td>2</td>
+<td>Mengidentifikasi aktivitas mencurigakan</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Implementasi Remote Syslog</td>
+<td>4</td>
+<td>Memastikan semua log terkirim ke server terpusat</td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Tracing IP mencurigakan 192.168.80.1 &amp; 192.168.24.1 saat kejadian ransomware</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Capture log lalu lintas jaringan pada waktu kejadian</td>
+<td>4</td>
+<td>Mendapatkan bukti lalu lintas terkait serangan</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Identifikasi source &amp; destination connection mencurigakan</td>
+<td>3</td>
+<td>Menentukan titik masuk &amp; arah serangan</td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Scanning RDP Windows Baru di Colo</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Membuat RDP baru di Colo</td>
+<td>1</td>
+<td></td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Jalankan port scan untuk deteksi RDP terbuka</td>
+<td>1</td>
+<td></td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Periksa konfigurasi keamanan RDP (NLA, whitelist IP)</td>
+<td>2</td>
+<td>Memastikan RDP aman</td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Scanning RDP salah satu Customer di Colo</strong></td>
+<td></td>
+<td>6</td>
+<td></td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>POC MikroTik di Blok C</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Deploy MikroTik lab dengan topologi VLAN sama persis (24, 25, 99, dll)</td>
+<td>4</td>
+<td>Replikasi environment Colo untuk testing</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Terapkan aturan masquerade yang sama seperti konfigurasi Colo (baseline)</td>
+<td>2</td>
+<td>Memastikan hasil uji identik dengan kondisi existing</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Uji logging saat serangan internal (ssh brute-force simulasi)</td>
+<td>2</td>
+<td>Validasi problem log visibility</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Terapkan perbaikan (hapus masquerade antar VLAN, segmentasi firewall, mgmt ACL)</td>
+<td>4</td>
+<td>Membuktikan solusi bisa jalan tanpa ganggu traffic</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Dokumentasikan hasil test (before/after config &amp; log visibility)</td>
+<td>2</td>
+<td>Jadi referensi implementasi di Colo</td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Perbaikan Konfigurasi MikroTik Colo</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Hapus aturan masquerade antar VLAN di /ip firewall nat</td>
+<td>2</td>
+<td>Pastikan IP source tercatat dengan benar di log</td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Terapkan aturan firewall antar VLAN (deny by default, allow by need)</td>
+<td>3</td>
+<td>Segmentasi lalu lintas internal</td>
+<td>Cancelled</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Audit NAT dan ACL lainnya</td>
+<td>2</td>
+<td>Pastikan tidak ada celah eskalasi</td>
+<td>Done</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Deploy Visibility &amp; Monitoring</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Implementasi remote syslog ke server SIEM/ELK</td>
+<td>6</td>
+<td>Centralized log untuk analisis</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Deploy EDR ringan (misal Wazuh/Velociraptor) di semua VM</td>
+<td>3</td>
+<td>Deteksi serangan endpoint real-time</td>
+<td>Done</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>Implementasi Kontrol Akses</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Deploy PAM untuk akun administratif</td>
+<td>3</td>
+<td>Kredensial administratif terkontrol</td>
+<td>Planned</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Last Updated: September 10, 2025</em></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ceph-memory-limit-fix/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ceph-memory-limit-fix/" class="btn btn-xs btn-link">
+        Ceph Memory Limit Fix
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../security-hardening/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../security-hardening/" class="btn btn-xs btn-link">
+        Security Hardening
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

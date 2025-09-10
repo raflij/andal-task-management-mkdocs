@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Security Hardening - DevOps/SRE Task Management</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Security Hardening Project (July 2025)", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../post-incident/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../post-incident/" class="btn btn-xs btn-link">
+        Post-Incident Response (Ransomware)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="security-hardening-project-july-2025">Security Hardening Project (July 2025)<a class="headerlink" href="#security-hardening-project-july-2025" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Task</th>
+<th>SubTasks</th>
+<th>Estimate Hour</th>
+<th>Goal</th>
+<th>Impact</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Report</th>
+<th>Start Date</th>
+<th>End Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0 - Credential &amp; Asset Data Collection</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Inventory All Credentials</td>
+<td>Mikrotik, Bare Metal, VM, RDP, Portal</td>
+<td>6</td>
+<td>Map all current accounts and reduce unknowns</td>
+<td></td>
+<td>High</td>
+<td>Done</td>
+<td>List Password Andal 23 Juni 2025.xlsx</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td></td>
+<td>Collect Stored Keys &amp; Secrets</td>
+<td>Audit [ssh] /authorized_keys on all servers<br/>Check credential storage systems<br/>Identify hardcoded credentials</td>
+<td>6</td>
+<td>Identify reused, weak, or stale credentials</td>
+<td></td>
+<td>High</td>
+<td>Done</td>
+<td>Report - Collect Stored Keys &amp; Secrets</td>
+<td>2 Juli 2025</td>
+<td>2 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Centralize &amp; Encrypt Collected Data</td>
+<td>Store findings in encrypted vault<br/>Tag each with rotation status</td>
+<td>4</td>
+<td>Secure sensitive info while enabling analysis</td>
+<td></td>
+<td>High</td>
+<td>Cancelled</td>
+<td>Sudah implementasi ZTNA</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td></td>
+<td>Identify Orphaned &amp; Unused Accounts</td>
+<td>Look for last login timestamps<br/>Disable accounts unused for 90+ days</td>
+<td>4</td>
+<td>Reduce attack surface by removing dormant accounts</td>
+<td>Someone may lose access</td>
+<td>Medium</td>
+<td>Done</td>
+<td>Last Login Timestamps VM Colo</td>
+<td>3 Juli 2025</td>
+<td>3 Juli 2025</td>
+</tr>
+<tr>
+<td><strong>1 - Evidence Preservation</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Preserve Evidence</td>
+<td>Connect to MikroTik<br/>Run /export file=backup.rsc</td>
+<td>3</td>
+<td>Retain configuration and system evidence</td>
+<td></td>
+<td>High</td>
+<td>Done</td>
+<td>Report - Preserve Evidence Mikrotik2</td>
+<td>4 Juli 2025</td>
+<td>4 Juli 2025</td>
+</tr>
+<tr>
+<td><strong>2 - Compromise &amp; Backdoor Scanning</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Scan for known Linux rootkits &amp; backdoors</td>
+<td>Run chkrootkit, rkhunter, YARA, etc.</td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Done</td>
+<td>velociraptor - scan_results</td>
+<td>4 Juli 2025</td>
+<td>7 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Inspect unusual system binaries</td>
+<td>Hash critical binaries and compare to known-good</td>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Done</td>
+<td>velociraptor - analzye</td>
+<td>7 Juli 2025</td>
+<td>8 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Audit crontabs, rc.local, systemd, startup scripts</td>
+<td>Look for unauthorized jobs or persistence</td>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Done</td>
+<td></td>
+<td>7 Juli 2025</td>
+<td>8 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Network backdoor check</td>
+<td>Use ss, netstat, lsof, Wireshark/tcpdump, Nmap scans</td>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Done</td>
+<td>network_backdoor_check - OneDrive</td>
+<td>9 Juli 2025</td>
+<td>11 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Review backdoor scan results</td>
+<td></td>
+<td>16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>14 Juli 2025</td>
+<td>14 Juli 2025</td>
+</tr>
+<tr>
+<td><strong>3 - Secure Rebuild &amp; Hardening</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Mikrotik Service Minimization</td>
+<td>Disable telnet, ftp, www, api, api-ssl<br/>Allow Winbox/SSH only from jump host</td>
+<td>4</td>
+<td>Reduce attack surface</td>
+<td>Loss of legacy service access</td>
+<td>High</td>
+<td>Done</td>
+<td></td>
+<td>15 Juli 2025</td>
+<td>15 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Mikrotik Firewall Hardening</td>
+<td>First rule: drop invalid connections<br/>Explicit allow rules only<br/>Block remote mgmt from public</td>
+<td>8</td>
+<td>Control ingress/egress precisely</td>
+<td>Risk of lockout or service drop</td>
+<td>High</td>
+<td>Done</td>
+<td></td>
+<td>15 Juli 2025</td>
+<td>15 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Mikrotik SSH Security</td>
+<td>Enforce SSH key auth<br/>Disable root login<br/>Enable strong crypto</td>
+<td>6</td>
+<td>Prevent brute-force &amp; privilege escalation</td>
+<td>SSH with password not available</td>
+<td>High</td>
+<td>Done</td>
+<td></td>
+<td>16 Juli 2025</td>
+<td>16 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Mikrotik Secure Logging</td>
+<td>Configure remote syslog to Wazuh/Logstash</td>
+<td>8</td>
+<td>Enable centralized visibility</td>
+<td></td>
+<td>High</td>
+<td>Done</td>
+<td></td>
+<td>17 Juli 2025</td>
+<td>17 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Infrastructure Fresh Reinstall</td>
+<td>Reimage all systems from known-good ISOs</td>
+<td>16</td>
+<td>Eliminate rootkits/backdoors</td>
+<td>Downtime</td>
+<td>High</td>
+<td>Cancelled</td>
+<td>belum memungkinkan melakukan karena kurang dokumentasi</td>
+<td>10 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Infrastructure Patch Management</td>
+<td>Register all systems to update service</td>
+<td>8</td>
+<td>Prevent exploits via known CVEs</td>
+<td></td>
+<td>High</td>
+<td>Planned</td>
+<td></td>
+<td>14 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>VLAN Segmentation</td>
+<td>Define VLANs: mgmt, web, app, db, office</td>
+<td>16</td>
+<td>Limit lateral movement</td>
+<td>Communication breaks likely</td>
+<td>High</td>
+<td>Cancelled</td>
+<td>berisiko network breaks</td>
+<td>15 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WireGuard Full Mesh VPN</td>
+<td>Deploy WireGuard Server in internal cluster</td>
+<td>16</td>
+<td>Secure site-to-site transport</td>
+<td>Current connections might be disturbed</td>
+<td>High</td>
+<td>Cancelled</td>
+<td>https://teleport-cluster.test.andalsoftware.com/</td>
+<td>17 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ZTNA for Remote Access</td>
+<td>Deploy Cloudflare Access or Tailscale</td>
+<td>8</td>
+<td>No network exposure; app-level trust</td>
+<td></td>
+<td>High</td>
+<td>Cancelled</td>
+<td>sudah implementasi ZTNA teleport</td>
+<td>18 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>4 - Monitoring, IAM, and Operations</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Deploy Wazuh SIEM</td>
+<td>Install Wazuh Indexer, server and dashboard<br/>Upgrade version<br/>Set up SSL certificates</td>
+<td>24</td>
+<td>Full visibility and alerting</td>
+<td></td>
+<td>High</td>
+<td>Done</td>
+<td>https://wazuh.andalsoftware.com</td>
+<td>3 Juli 2025</td>
+<td>7 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>MikroTik Log Forwarding</td>
+<td>/system logging to send logs to Logstash</td>
+<td>6</td>
+<td>Central log analysis</td>
+<td></td>
+<td>High</td>
+<td>Done</td>
+<td>https://kibana.andalsoftware.com</td>
+<td>17 Juli 2025</td>
+<td>17 Juli 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Alerting Rules Setup</td>
+<td>Failed logins, abnormal geolocation<br/>FIM triggers, privilege escalation</td>
+<td>8</td>
+<td>Timely breach detection</td>
+<td></td>
+<td>High</td>
+<td>Planned</td>
+<td></td>
+<td>23 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Deploy FreeIPA Cluster</td>
+<td>Install HA FreeIPA<br/>Harden root/admin access</td>
+<td>16</td>
+<td>Unified user directory</td>
+<td></td>
+<td>High</td>
+<td>Cancelled</td>
+<td>sudah implementasi ZTNA teleport</td>
+<td>25 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>FreeIPA Group Policies</td>
+<td>Define groups by role<br/>HBAC access rules</td>
+<td>8</td>
+<td>Role-based access control</td>
+<td>Restriction enforcement</td>
+<td>High</td>
+<td>Cancelled</td>
+<td>sudah implementasi ZTNA teleport</td>
+<td>29 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>MikroTik RADIUS Integration</td>
+<td>Set up FreeRADIUS<br/>Configure /radius login</td>
+<td>8</td>
+<td>Central login and auditing</td>
+<td></td>
+<td>High</td>
+<td>Cancelled</td>
+<td></td>
+<td>30 Juli 2025</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>SSH Hardening Across Servers</td>
+<td>SSSD + FreeIPA + MFA<br/>Disable password SSH logins</td>
+<td>16</td>
+<td>Central key control &amp; MFA enforcement</td>
+<td></td>
+<td>High</td>
+<td>Cancelled</td>
+<td>akses SSH sudah disable semua ke mikrotik</td>
+<td>31 Juli 2025</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Last Updated: September 10, 2025</em></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../post-incident/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../post-incident/" class="btn btn-xs btn-link">
+        Post-Incident Response (Ransomware)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

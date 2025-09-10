@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Monitoring Kubernetes Phase 2 - DevOps/SRE Task Management</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Monitoring Kubernetes Phase 2", url: "#_top", children: [
+              {title: "Project Overview", url: "#project-overview" },
+              {title: "Project Tasks", url: "#project-tasks" },
+              {title: "Project Summary", url: "#project-summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../monitoring-matrix/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../monitoring-matrix/" class="btn btn-xs btn-link">
+        Monitoring Matrix
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../monitoring-kubernetes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../monitoring-kubernetes/" class="btn btn-xs btn-link">
+        Monitoring Kubernetes Phase 1
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="monitoring-kubernetes-phase-2">Monitoring Kubernetes Phase 2<a class="headerlink" href="#monitoring-kubernetes-phase-2" title="Permanent link">&para;</a></h1>
+<h2 id="project-overview">Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">&para;</a></h2>
+<p>This planning document outlines Phase 2 of the Kubernetes monitoring implementation project. This phase focuses on storage monitoring with Ceph cluster observability and stateful application monitoring through sidecar containers.</p>
+<h2 id="project-tasks">Project Tasks<a class="headerlink" href="#project-tasks" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>SubTasks</th>
+<th>Estimate Hours</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create monitoring for Ceph cluster</td>
+<td>ceph_health_status, osd_up, ceph_cluster_total_used_bytes</td>
+<td>4</td>
+<td>High</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Create monitoring for Ceph pool</td>
+<td>ceph_pool_stored, ceph_pool_max_avail, alert if usage &gt; 70%</td>
+<td>3</td>
+<td>High</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Create monitoring stateful with sidecar</td>
+<td>POC Add sidecar Prometheus exporter (df, du, iostat) for volume usage per PVC, inject to stateful pods like PostgreSQL, Kafka, etc.</td>
+<td>3</td>
+<td>Medium</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume citus testing</td>
+<td>Configure volume monitoring for Citus testing environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume keycloak testing</td>
+<td>Configure volume monitoring for Keycloak testing environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume redis testing</td>
+<td>Configure volume monitoring for Redis testing environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume kafka testing</td>
+<td>Configure volume monitoring for Kafka testing environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume citus staging</td>
+<td>Configure volume monitoring for Citus staging environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume keycloak staging</td>
+<td>Configure volume monitoring for Keycloak staging environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume redis staging</td>
+<td>Configure volume monitoring for Redis staging environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Add sidecar monitoring &amp; alert volume kafka staging</td>
+<td>Configure volume monitoring for Kafka staging environment</td>
+<td>1</td>
+<td>Medium</td>
+<td>In Progress</td>
+</tr>
+</tbody>
+</table>
+<h2 id="project-summary">Project Summary<a class="headerlink" href="#project-summary" title="Permanent link">&para;</a></h2>
+<p><strong>Total Estimated Hours:</strong> 18+ hours</p>
+<p><strong>Progress Status:</strong>
+- ✅ Ceph cluster monitoring - Health status, OSD status, storage utilization
+- ✅ Ceph pool monitoring - Pool storage metrics with 70% usage alerts
+- ✅ Sidecar POC - Volume monitoring framework implementation
+- ✅ Testing environment - Citus and Redis volume monitoring
+- 🔄 Testing environment - Keycloak and Kafka volume monitoring
+- ✅ Staging environment - Citus and Redis volume monitoring<br />
+- 🔄 Staging environment - Keycloak and Kafka volume monitoring</p>
+<p><strong>Key Achievements:</strong>
+- Established comprehensive Ceph storage monitoring
+- Implemented automated pool usage alerting at 70% threshold
+- Successfully deployed sidecar monitoring framework
+- Deployed volume monitoring for critical stateful services</p>
+<p><strong>Impact:</strong> Enhanced storage observability and proactive capacity management for Kubernetes workloads.</p>
+<p><strong>Priority:</strong> High - Critical storage infrastructure monitoring</p>
+<hr />
+<p><em>Last Updated: September 10, 2025</em></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../monitoring-matrix/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../monitoring-matrix/" class="btn btn-xs btn-link">
+        Monitoring Matrix
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../monitoring-kubernetes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../monitoring-kubernetes/" class="btn btn-xs btn-link">
+        Monitoring Kubernetes Phase 1
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
