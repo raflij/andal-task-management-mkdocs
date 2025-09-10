@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Planning & Projects - DevOps/SRE Task Management</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Planning \u0026amp; Projects", url: "#_top", children: [
+              {title: "\ud83d\ude80 Active Projects", url: "#active-projects" },
+              {title: "\ud83d\udcc5 Sprint Planning", url: "#sprint-planning" },
+              {title: "\ud83c\udfaf Goals \u0026amp; OKRs", url: "#goals-okrs" },
+              {title: "\ud83d\udccb Project Backlog", url: "#project-backlog" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../infrastructure/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../infrastructure/" class="btn btn-xs btn-link">
+        Infrastructure
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../todo/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../todo/" class="btn btn-xs btn-link">
+        Todo & Tasks
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="planning-projects">Planning &amp; Projects<a class="headerlink" href="#planning-projects" title="Permanent link">&para;</a></h1>
+<h2 id="active-projects">🚀 Active Projects<a class="headerlink" href="#active-projects" title="Permanent link">&para;</a></h2>
+<h3 id="kubernetes-cluster-migration">Kubernetes Cluster Migration<a class="headerlink" href="#kubernetes-cluster-migration" title="Permanent link">&para;</a></h3>
+<p><strong>Status:</strong> In Progress<br />
+<strong>Due:</strong> October 15, 2025<br />
+<strong>Progress:</strong> 65%  </p>
+<p><strong>Description:</strong> Migrate legacy workloads from Docker Swarm to Kubernetes cluster with improved monitoring and alerting</p>
+<p><strong>Tasks:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Set up Kubernetes cluster infrastructure</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Configure storage classes and PVCs  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Deploy core services (ingress, DNS, monitoring)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Migrate database workloads (Citus, Redis)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implement Dapr sidecars for microservices</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Update CI/CD pipelines</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Performance testing and validation</li>
+</ul>
+<hr />
+<h3 id="monitoring-stack-upgrade">Monitoring Stack Upgrade<a class="headerlink" href="#monitoring-stack-upgrade" title="Permanent link">&para;</a></h3>
+<p><strong>Status:</strong> Planning<br />
+<strong>Due:</strong> November 30, 2025<br />
+<strong>Progress:</strong> 25%  </p>
+<p><strong>Description:</strong> Upgrade Prometheus/Grafana stack and implement comprehensive alerting matrix</p>
+<p><strong>Tasks:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Audit current monitoring gaps</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Design new alerting matrix</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Deploy Prometheus Operator</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Configure environment-specific alerts</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Set up PagerDuty integration</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Create runbook templates</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Train team on new alerting system</li>
+</ul>
+<hr />
+<h2 id="sprint-planning">📅 Sprint Planning<a class="headerlink" href="#sprint-planning" title="Permanent link">&para;</a></h2>
+<h3 id="current-sprint-sept-10-24-2025">Current Sprint (Sept 10-24, 2025)<a class="headerlink" href="#current-sprint-sept-10-24-2025" title="Permanent link">&para;</a></h3>
+<p><strong>Sprint Goal:</strong> Complete database migration and implement core monitoring alerts</p>
+<p><strong>Tasks:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Migrate Citus cluster to Kubernetes</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Set up Redis Cluster with persistence</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Configure critical alerts for production</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Document migration procedures</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test disaster recovery procedures</li>
+</ul>
+<hr />
+<h2 id="goals-okrs">🎯 Goals &amp; OKRs<a class="headerlink" href="#goals-okrs" title="Permanent link">&para;</a></h2>
+<h3 id="q4-2025-objectives">Q4 2025 Objectives<a class="headerlink" href="#q4-2025-objectives" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Infrastructure Modernization:</strong> Complete migration to cloud-native stack (100% containerized workloads)</li>
+<li><strong>Reliability:</strong> Achieve 99.9% uptime SLA with mean time to recovery &lt; 15 minutes</li>
+<li><strong>Observability:</strong> Implement comprehensive monitoring with zero blind spots</li>
+</ul>
+<h3 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Migrate 15 legacy services to Kubernetes</li>
+<li>Reduce incident response time by 50%</li>
+<li>Implement automated alerting for 100% of critical services</li>
+</ul>
+<hr />
+<h2 id="project-backlog">📋 Project Backlog<a class="headerlink" href="#project-backlog" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Service mesh implementation (Istio/Linkerd evaluation)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Multi-region disaster recovery setup</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Infrastructure as Code migration (Terraform/Pulumi)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Security scanning automation (Trivy, Falco)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cost optimization analysis</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Developer platform setup (ArgoCD, Tekton)</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../infrastructure/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../infrastructure/" class="btn btn-xs btn-link">
+        Infrastructure
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../todo/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../todo/" class="btn btn-xs btn-link">
+        Todo & Tasks
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

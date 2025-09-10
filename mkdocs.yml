@@ -3,12 +3,16 @@ site_description: Personal documentation for DevOps/SRE tasks, planning, and inf
 
 nav:
   - Home: index.md
-  - Todo & Tasks: todo.md
-  - Planning & Projects: planning.md
+  - Planning:
+    - Overview: planning/index.md
+    - Security Hardening: planning/security-hardening.md
+    - Post-Incident Response (Ransomware): planning/post-incident.md
+    - Ceph Memory Limit Fix: planning/ceph-memory-limit-fix.md
+    - Monitoring Kubernetes Phase 1: planning/monitoring-kubernetes.md
+    - Monitoring Kubernetes Phase 2: planning/monitoring-kubernetes-phase2.md
+  - Monitoring Matrix: monitoring-matrix.md
   - Infrastructure: infrastructure.md
   - Runbooks: runbooks.md
-  - Monitoring: monitoring.md
-  - Monitoring Matrix: monitoring-matrix.md
 
 theme:
   name: windmill
